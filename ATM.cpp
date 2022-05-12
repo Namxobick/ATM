@@ -1,17 +1,17 @@
 #include "ATM.h"
 
-ATM::ATM(ProcessingÑenter processingÑenter)
+ATM::ATM(ProcessingÑenter* processingÑenter)
 {
-	_processingÑenter = processingÑenter;
+	_processingÑenter = *processingÑenter;
 
 	for (int i = 0; i < 6; i++)
-		_banknotesCounsts.push_back(int(MaxBanknoteCounts * 0.8));
+		_banknotesCounsts.Add(int(MaxBanknoteCounts * 0.8));
 
 }
 
-ATM::ATM(ProcessingÑenter processingÑenter, std::initializer_list<int> array)
+ATM::ATM(ProcessingÑenter* processingÑenter, std::initializer_list<int> array)
 {
-	_processingÑenter = processingÑenter;
+	_processingÑenter = *processingÑenter;
 	_banknotesCounsts = array;
 }
 
@@ -58,7 +58,7 @@ void ATM::PrintBalance(Customer customer)
 	std::cout << customer.Balance << std::endl;
 }
 
-void ATM::WithdrawCash(Customer& customer)
+void ATM::Withdraw(Customer& customer)
 {
 	std::vector<int> withdrawBanknotesCounsts = { 0, 0, 0, 0, 0, 0 };
 	int amount, constAmount;
@@ -88,7 +88,7 @@ void ATM::WithdrawCash(Customer& customer)
 	}
 	else
 	{
-		for (size_t i = 0; i < Banknotes.size(); i++)
+		for (size_t i = 0; i < Banknotes.Size(); i++)
 			_banknotesCounsts[i] -= withdrawBanknotesCounsts[i];
 
 		customer.Balance -= constAmount;
@@ -97,7 +97,7 @@ void ATM::WithdrawCash(Customer& customer)
 	}
 }
 
-void ATM::PutCash(Customer& customer)
+void ATM::Deposit(Customer& customer)
 {
 	std::vector<int> PutBanknotesCounsts = { 0, 0, 0, 0, 0, 0 };
 	
@@ -150,10 +150,10 @@ void ATM::InterfaceATM()
 			PrintBalance(customer);
 			break;
 		case 2:
-			WithdrawCash(customer);
+			Withdraw(customer);
 			break;
 		case 3:
-			PutCash(customer);
+			Deposit(customer);
 			break;
 		case 4:
 			break;

@@ -6,27 +6,30 @@ ProcessingÑenter::ProcessingÑenter()
 
 ProcessingÑenter::ProcessingÑenter(Customer customer)
 {
-	_customers.push_back(customer);
+	_customers.Add(customer);
 }
 
-ProcessingÑenter::ProcessingÑenter(std::vector<Customer> customers)
+ProcessingÑenter::ProcessingÑenter(Vector<Customer> customers)
 {
 	_customers = customers;
 }
 
 void ProcessingÑenter::AddCustomer(Customer customer)
 {
-	_customers.push_back(customer);
+	_customers.Add(customer);
 }
 
-void ProcessingÑenter::AddCustomers(std::vector<Customer> customers)
+void ProcessingÑenter::AddCustomers(Vector<Customer> customers)
 {
-	_customers.insert(_customers.end(), customers.begin(), customers.end());
+	for (size_t i = 0; i < customers.Size(); i++)
+	{
+		_customers.Add(customers[i]);
+	}
 }
 
 Customer& ProcessingÑenter::GetInfo(std::string cardNumber)
 {
-	for (int i = 0; i < _customers.size(); i++)
+	for (int i = 0; i < _customers.Size(); i++)
 	{
 		if (_customers[i].CardNumber == cardNumber)
 		{
@@ -38,7 +41,4 @@ Customer& ProcessingÑenter::GetInfo(std::string cardNumber)
 	Customer customer;
 	return customer;
 }
-
-
-
 

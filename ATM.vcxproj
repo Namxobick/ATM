@@ -146,6 +146,7 @@
   <ItemGroup>
     <ClInclude Include="ATM.h" />
     <ClInclude Include="ProcessingСenter.h" />
+    <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

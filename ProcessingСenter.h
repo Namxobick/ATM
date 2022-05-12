@@ -2,6 +2,7 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include "Vector.h"
 
 struct Customer
 {
@@ -15,15 +16,16 @@ struct Customer
 class ProcessingÑenter
 {
 private:
-	std::vector<Customer> _customers;
+	Vector<Customer> _customers;
+	//std::vector<Customer> _customers;
 
 public:
 	ProcessingÑenter();
 	ProcessingÑenter(Customer customer);
-	ProcessingÑenter(std::vector<Customer> customers);
+	ProcessingÑenter(Vector<Customer> customers);
 
 	void AddCustomer(Customer customer);
-	void AddCustomers(std::vector<Customer> customers);
+	void AddCustomers(Vector<Customer> customers);
 
 	Customer& GetInfo(std::string cardNumber);
 
